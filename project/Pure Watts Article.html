@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aero Socks for Under $4 — Pure Watts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f4f0;
+  --surface: #ffffff;
+  --text: #111111;
+  --muted: #787068;
+  --border: #e2dfd7;
+  --lime: #c8f135;
+  --dark: #0d0d0d;
+  --radius: 10px;
+  --font-head: 'Barlow Condensed', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--text); }
+
+/* ── NAV ─────────────────────────────────────────────────────────── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: #fff; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 28px; height: 62px; gap: 24px;
+}
+.logo {
+  font-family: var(--font-head); font-size: 22px; font-weight: 900;
+  text-transform: uppercase; letter-spacing: .5px;
+  text-decoration: none; color: var(--dark);
+  display: flex; align-items: center; gap: 4px;
+}
+.logo-bolt { background: var(--lime); padding: 1px 5px 1px 4px; border-radius: 3px; }
+.nav-links { display: flex; gap: 20px; list-style: none; }
+.nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--muted); transition: color .15s; }
+.nav-links a:hover { color: var(--text); }
+.nav-tiktok {
+  background: var(--dark); color: #fff; padding: 8px 16px; border-radius: 6px;
+  font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap;
+}
+
+/* ── LAYOUT ──────────────────────────────────────────────────────── */
+.page-wrap {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 300px;
+  gap: 0; align-items: start; padding: 40px 28px 80px;
+}
+.main { min-width: 0; padding-right: 48px; }
+
+/* ── BREADCRUMB ───────────────────────────────────────────────────── */
+.breadcrumb {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--muted); margin-bottom: 20px;
+}
+.breadcrumb a { color: var(--muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb-sep { opacity: .4; }
+
+/* ── ARTICLE HEADER ──────────────────────────────────────────────── */
+.article-tags { display: flex; gap: 8px; margin-bottom: 14px; }
+.tag {
+  font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+  padding: 4px 10px; border-radius: 4px; border: 1.5px solid var(--border);
+  color: var(--muted);
+}
+.tag-tested { background: var(--lime); border-color: var(--lime); color: var(--dark); }
+
+.article-title {
+  font-family: var(--font-head); font-size: 52px; font-weight: 900;
+  line-height: .95; text-transform: uppercase; letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+.article-title em { color: var(--lime); font-style: normal; }
+
+.article-deck {
+  font-size: 18px; color: var(--muted); line-height: 1.5;
+  margin-bottom: 16px; font-weight: 400;
+}
+
+.article-meta {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 13px; color: var(--muted);
+  padding-bottom: 20px; border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+.meta-stars { color: #f59e0b; letter-spacing: .5px; font-size: 14px; }
+.meta-val { font-weight: 600; color: var(--text); }
+
+/* ── PRODUCT IMAGE ────────────────────────────────────────────────── */
+.product-img {
+  width: 100%; height: 280px; border-radius: var(--radius);
+  background-color: #e8e4dc;
+  background-image: repeating-linear-gradient(
+    45deg, transparent, transparent 14px,
+    rgba(0,0,0,.03) 14px, rgba(0,0,0,.03) 28px
+  );
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: #bbb; font-style: italic;
+  margin-bottom: 32px; border: 1px solid var(--border);
+}
+
+/* ── COMPARISON BOX ───────────────────────────────────────────────── */
+.compare-label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--muted); margin-bottom: 10px;
+}
+.compare-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border: 1.5px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; margin-bottom: 28px;
+}
+.compare-cell {
+  padding: 16px 20px;
+  border-right: 1.5px solid var(--border);
+}
+.compare-cell:last-child { border-right: none; background: var(--lime); }
+.compare-cell-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 4px; }
+.compare-price { font-family: var(--font-head); font-size: 40px; font-weight: 900; line-height: 1; }
+.compare-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.compare-save {
+  font-family: var(--font-head); font-size: 14px; font-weight: 700;
+  background: var(--dark); color: var(--lime);
+  padding: 3px 9px; border-radius: 4px; display: inline-block;
+  text-transform: uppercase; letter-spacing: .5px; margin-top: 8px;
+}
+
+/* ── ARTICLE BODY ─────────────────────────────────────────────────── */
+.body-text { font-size: 16px; line-height: 1.7; color: #333; }
+.body-text p { margin-bottom: 18px; }
+.body-text strong { font-weight: 600; color: var(--text); }
+
+.pull-quote {
+  border-left: 4px solid var(--lime); margin: 28px 0;
+  padding: 16px 20px; background: var(--surface);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.pull-quote p {
+  font-size: 17px; font-style: italic; line-height: 1.55;
+  color: var(--text); margin: 0;
+}
+.pull-quote cite {
+  display: block; font-size: 12px; color: var(--muted);
+  font-style: normal; font-weight: 600; margin-top: 8px;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+
+.verdict-box {
+  background: var(--dark); color: #fff;
+  border-radius: var(--radius); padding: 22px 24px;
+  margin: 28px 0;
+}
+.verdict-label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 2px; color: var(--lime); margin-bottom: 8px;
+}
+.verdict-text { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.8); }
+
+.specs-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--border);
+  border: 1.5px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; margin: 28px 0;
+}
+.spec-cell {
+  background: var(--surface); padding: 14px 16px;
+}
+.spec-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 3px; font-weight: 600; }
+.spec-val { font-size: 15px; font-weight: 600; }
+
+/* ── RELATED ──────────────────────────────────────────────────────── */
+.related-title {
+  font-family: var(--font-head); font-size: 18px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px;
+}
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.related-card {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); overflow: hidden;
+  text-decoration: none; color: inherit; transition: box-shadow .2s;
+}
+.related-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+.related-img {
+  height: 80px; background-color: #e8e4dc;
+  background-image: repeating-linear-gradient(
+    45deg, transparent, transparent 10px,
+    rgba(0,0,0,.03) 10px, rgba(0,0,0,.03) 20px
+  );
+}
+.related-body { padding: 10px 12px; }
+.related-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+.related-save {
+  font-size: 11px; font-weight: 700; background: var(--lime);
+  padding: 2px 7px; border-radius: 3px; display: inline-block; text-transform: uppercase;
+}
+
+/* ── STICKY SIDEBAR ──────────────────────────────────────────────── */
+.sidebar {
+  position: sticky; top: 80px;
+  border: 1.5px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); overflow: hidden;
+}
+.sidebar-save-bar {
+  background: var(--lime); padding: 18px 20px; text-align: center;
+}
+.sidebar-save-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #555; }
+.sidebar-save-val {
+  font-family: var(--font-head); font-size: 56px; font-weight: 900;
+  line-height: 1; color: var(--dark);
+}
+.sidebar-save-sub { font-size: 13px; color: #555; margin-top: 2px; }
+
+.sidebar-body { padding: 18px 20px; display: flex; flex-direction: column; gap: 14px; }
+.sidebar-price-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); font-weight: 600; }
+.sidebar-price {
+  font-family: var(--font-head); font-size: 42px; font-weight: 900;
+  line-height: 1; margin-top: 2px;
+}
+.sidebar-branded { font-size: 13px; color: var(--muted); text-decoration: line-through; margin-top: 2px; }
+
+.sidebar-cta {
+  display: block; background: var(--dark); color: #fff; text-align: center;
+  padding: 14px; border-radius: 7px; font-size: 15px; font-weight: 700;
+  text-decoration: none; transition: background .15s; letter-spacing: .2px;
+}
+.sidebar-cta:hover { background: #2a2a2a; }
+.sidebar-cta-note { font-size: 12px; font-weight: 400; color: rgba(255,255,255,.55); display: block; margin-top: 2px; }
+
+.sidebar-divider { border: none; border-top: 1px solid var(--border); }
+
+.sidebar-stars { display: flex; align-items: center; gap: 6px; }
+.sidebar-stars .stars { color: #f59e0b; letter-spacing: .5px; }
+.sidebar-stars-info { font-size: 13px; color: var(--muted); }
+
+.sidebar-share {
+  display: block; text-align: center; padding: 11px;
+  border: 1.5px solid var(--border); border-radius: 7px;
+  font-size: 14px; font-weight: 600; text-decoration: none; color: var(--text);
+  transition: border-color .15s;
+}
+.sidebar-share:hover { border-color: #999; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .page-wrap { grid-template-columns: 1fr; padding: 28px 16px 60px; }
+  .main { padding-right: 0; margin-bottom: 32px; }
+  .article-title { font-size: 40px; }
+  .nav { padding: 0 16px; }
+  .nav-links { display: none; }
+  .related-grid { grid-template-columns: 1fr 1fr; }
+  .sidebar { position: static; }
+}
+@media (max-width: 480px) {
+  .article-title { font-size: 34px; }
+  .related-grid { grid-template-columns: 1fr; }
+  .compare-price { font-size: 32px; }
+  .sidebar-save-val { font-size: 44px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="logo" href="Pure Watts.html">
+    <span class="logo-bolt">⚡</span> PURE WATTS
+  </a>
+  <ul class="nav-links">
+    <li><a href="Pure Watts.html">All Picks</a></li>
+    <li><a href="Pure Watts.html">Cycling</a></li>
+    <li><a href="Pure Watts.html">Running</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+  <a class="nav-tiktok" href="https://temu.to/k/erey3rug0xz" target="_blank" rel="noopener">📱 TikTok</a>
+</nav>
+
+<!-- MAIN -->
+<div class="page-wrap">
+
+  <!-- ARTICLE CONTENT -->
+  <main class="main">
+
+    <nav class="breadcrumb">
+      <a href="Pure Watts.html">← All Picks</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="Pure Watts.html">Cycling</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>Aero Socks</span>
+    </nav>
+
+    <div class="article-tags">
+      <span class="tag">Cycling</span>
+      <span class="tag tag-tested">✓ Personally Tested</span>
+      <span class="tag">Under $5</span>
+    </div>
+
+    <h1 class="article-title">Aero Socks<br>for <em>Under $4</em></h1>
+    <p class="article-deck">The budget socks that feel identical to the $30 branded pair — same snug fit, same cooling, same locked-in heel.</p>
+
+    <div class="article-meta">
+      <span class="meta-stars">★★★★★</span>
+      <span class="meta-val">4.8</span>
+      <span>·</span>
+      <span>1,269 verified reviews</span>
+      <span>·</span>
+      <span>$3.89 / pair</span>
+    </div>
+
+    <div class="product-img">aero socks product photo</div>
+
+    <!-- COMPARISON -->
+    <p class="compare-label">Side by side</p>
+    <div class="compare-grid">
+      <div class="compare-cell">
+        <div class="compare-cell-label">Branded (e.g. Castelli)</div>
+        <div class="compare-price">$30</div>
+        <div class="compare-sub">Per pair</div>
+      </div>
+      <div class="compare-cell">
+        <div class="compare-cell-label">This pick</div>
+        <div class="compare-price">$3.89</div>
+        <div class="compare-sub">Per pair · Pure Watts rec.</div>
+        <div class="compare-save">YOU SAVE $26</div>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body-text">
+      <p>These might be the best-value item in your entire kit bag. At under $4 a pair, you'd expect them to disintegrate after two washes — but buyers who've come back to re-order say they don't shrink, hold their shape, and have proven surprisingly durable over time.</p>
+
+      <p>The fit runs snug, which actually works in your favour. Multiple riders compare the feel to compression socks — that locked-in sensation without the compression sock price tag. Cooling performance gets called out specifically for summer riding, and the stretch is legit: they pull on easy but stay put through the heel.</p>
+    </div>
+
+    <div class="pull-quote">
+      <p>"I tried these myself, and honestly? They feel identical to the aero cycling socks I paid $30 for. Same snug fit, same cooling sensation on the bike, same locked-in feel through the heel. I genuinely could not tell the difference mid-ride."</p>
+      <cite>— Pure Watts, personally tested</cite>
+    </div>
+
+    <div class="body-text">
+      <p>Colors stay vibrant wash after wash according to multiple buyers who've owned them for months. The catch? Don't expect these to be your one forever pair — the fabric is clearly a step below true premium construction. But at $4, <strong>just grab five of them and rotate</strong>. That's still cheaper than a single pair of the branded stuff.</p>
+    </div>
+
+    <div class="specs-grid">
+      <div class="spec-cell">
+        <div class="spec-label">Price per pair</div>
+        <div class="spec-val">$3.89</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Saving vs branded</div>
+        <div class="spec-val">~$26 per pair</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Rating</div>
+        <div class="spec-val">4.8 / 5</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Verified reviews</div>
+        <div class="spec-val">1,269</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Fit</div>
+        <div class="spec-val">Runs snug — size up if unsure</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Best for</div>
+        <div class="spec-val">Road, gravel, triathlon</div>
+      </div>
+    </div>
+
+    <div class="verdict-box">
+      <div class="verdict-label">Bottom Line</div>
+      <p class="verdict-text">Saves you ~$26 per pair compared to aero socks that feel exactly the same. Stock up, rotate, and spend the savings on something that actually makes you faster.</p>
+    </div>
+
+    <!-- RELATED -->
+    <p class="related-title">More Picks You'll Like</p>
+    <div class="related-grid">
+      <a class="related-card" href="https://temu.to/k/e6lo7odn6et" target="_blank" rel="noopener">
+        <div class="related-img"></div>
+        <div class="related-body">
+          <div class="related-name">Base Layer Vest</div>
+          <span class="related-save">SAVE $40</span>
+        </div>
+      </a>
+      <a class="related-card" href="https://temu.to/k/ea2dkjc8mdc" target="_blank" rel="noopener">
+        <div class="related-img"></div>
+        <div class="related-body">
+          <div class="related-name">TPU Inner Tubes</div>
+          <span class="related-save">SAVE $36</span>
+        </div>
+      </a>
+      <a class="related-card" href="https://temu.to/k/eta1sitshpa" target="_blank" rel="noopener">
+        <div class="related-img"></div>
+        <div class="related-body">
+          <div class="related-name">Saddle Bag</div>
+          <span class="related-save">SAVE $25</span>
+        </div>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- STICKY SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-save-bar">
+      <div class="sidebar-save-label">You Save</div>
+      <div class="sidebar-save-val">$26</div>
+      <div class="sidebar-save-sub">per pair vs branded</div>
+    </div>
+    <div class="sidebar-body">
+      <div>
+        <div class="sidebar-price-label">Use my link</div>
+        <div class="sidebar-price">$3.89</div>
+        <div class="sidebar-branded">$30 branded equivalent</div>
+      </div>
+      <a class="sidebar-cta" href="https://temu.to/k/edvfnpj6epm" target="_blank" rel="noopener">
+        Buy on Temu →
+        <span class="sidebar-cta-note">New user? Under $1 with sign-up bonus</span>
+      </a>
+      <hr class="sidebar-divider">
+      <div class="sidebar-stars">
+        <span class="stars">★★★★★</span>
+        <div>
+          <span style="font-size:13px;font-weight:600;">4.8 / 5</span>
+          <div class="sidebar-stars-info">1,269 verified reviews</div>
+        </div>
+      </div>
+      <hr class="sidebar-divider">
+      <a class="sidebar-share" href="https://temu.to/k/erey3rug0xz" target="_blank" rel="noopener">
+        📱 Share on TikTok
+      </a>
+    </div>
+  </aside>
+
+</div>
+
+</body>
+</html>
