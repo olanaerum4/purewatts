@@ -68,7 +68,7 @@ if (!p) {
 
   const relatedHTML = relatedPicks.map(r => `
     <a class="related-card" href="review.html?id=${r.id}">
-      <div class="related-img"></div>
+      <div class="related-img">${r.img ? `<img src="${r.img}" alt="${r.name}" loading="lazy">` : ''}</div>
       <div class="related-body">
         <div class="related-name">${r.name}</div>
         <span class="related-save">SAVE $${r.save}</span>
@@ -108,7 +108,7 @@ if (!p) {
       <span>$${p.price} / unit</span>
     </div>
 
-    <div class="product-img" role="img" aria-label="${p.name.toLowerCase()} product photo">${p.name.toLowerCase()} product photo</div>
+    <div class="product-img" role="img" aria-label="${p.name.toLowerCase()} product photo">${p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : `${p.name.toLowerCase()} product photo`}</div>
 
     <p class="compare-label">Side by side</p>
     <div class="compare-grid">
@@ -195,13 +195,4 @@ if (!p) {
           </div>
         </div>
         <hr class="sidebar-divider">
-        <a class="sidebar-share" href="https://temu.to/k/erey3rug0xz" target="_blank" rel="noopener">
-          📱 Share on TikTok
-        </a>
-      </div>
-    </aside>
-  `);
-}
-</script>
-</body>
-</html>
+        <a class="sidebar-share" href="https://temu.to/k/erey3rug0xz
