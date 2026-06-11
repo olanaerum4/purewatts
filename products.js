@@ -4,6 +4,7 @@ const products = [
 
   {
     id: 'aero-socks',
+    img: 'images/aero-socks.jpg',
     name: 'Aero Socks',
     cat: 'Cycling',
     filters: ['cycling', 'under5'],
@@ -19,6 +20,7 @@ const products = [
   },
   {
     id: 'base-layer',
+    img: 'images/base-layer.jpg',
     name: 'Base Layer Vest',
     cat: 'Cycling',
     filters: ['cycling', 'bigsave'],
@@ -32,6 +34,7 @@ const products = [
   },
   {
     id: 'cycling-cap',
+    img: 'images/cycling-cap.jpg',
     name: 'Cycling Cap',
     cat: 'Cycling',
     filters: ['cycling', 'under5'],
@@ -45,6 +48,7 @@ const products = [
   },
   {
     id: 'tyre-levers',
+    img: 'images/tyre-levers.jpg',
     name: 'Tyre Levers',
     cat: 'Tools',
     filters: ['tools', 'under5'],
@@ -58,6 +62,7 @@ const products = [
   },
   {
     id: 'soft-flask',
+    img: 'images/soft-flask.jpg',
     name: 'Collapsible Soft Flask',
     cat: 'Running',
     filters: ['running', 'under5'],
@@ -71,6 +76,7 @@ const products = [
   },
   {
     id: 'multi-tool',
+    img: 'images/multi-tool.jpg',
     name: '11-in-1 Multi-Tool',
     cat: 'Tools',
     filters: ['tools', 'bigsave'],
@@ -84,6 +90,7 @@ const products = [
   },
   {
     id: 'tpu-tube',
+    img: 'images/tpu-tube.jpg',
     name: 'TPU Inner Tube 700C',
     cat: 'Cycling',
     filters: ['cycling', 'under5', 'bigsave'],
@@ -97,6 +104,7 @@ const products = [
   },
   {
     id: 'saddle-bag',
+    img: 'images/saddle-bag.jpg',
     name: 'Saddle Bag',
     cat: 'Cycling',
     filters: ['cycling', 'bigsave'],
@@ -110,6 +118,7 @@ const products = [
   },
   {
     id: 'bottle-cage',
+    img: 'images/bottle-cage.jpg',
     name: 'Carbon-Look Bottle Cage',
     cat: 'Cycling',
     filters: ['cycling', 'under5', 'bigsave'],
@@ -123,6 +132,7 @@ const products = [
   },
   {
     id: 'rear-light',
+    img: 'images/rear-light.jpg',
     name: 'Rear Light with Brake Sensor',
     cat: 'Safety',
     filters: ['safety', 'bigsave'],
@@ -136,6 +146,7 @@ const products = [
   },
   {
     id: 'cycling-gloves-half',
+    img: 'images/cycling-gloves-half.jpg',
     name: 'Half-Finger Cycling Gloves',
     cat: 'Cycling',
     filters: ['cycling', 'bigsave'],
@@ -149,6 +160,7 @@ const products = [
   },
   {
     id: 'arm-sleeves',
+    img: 'images/arm-sleeves.jpg',
     name: 'UV Arm Sleeves (3-pack)',
     cat: 'Cycling',
     filters: ['cycling', 'running', 'bigsave'],
@@ -162,6 +174,7 @@ const products = [
   },
   {
     id: 'winter-gloves',
+    img: 'images/winter-gloves.jpg',
     name: 'Winter Cycling Gloves',
     cat: 'Cycling',
     filters: ['cycling', 'bigsave'],
@@ -175,6 +188,7 @@ const products = [
   },
   {
     id: 'summer-gloves',
+    img: 'images/summer-gloves.jpg',
     name: 'Summer Cycling Gloves',
     cat: 'Cycling',
     filters: ['cycling', 'bigsave'],
@@ -188,6 +202,7 @@ const products = [
   },
   {
     id: 'balaclava',
+    img: 'images/balaclava.jpg',
     name: 'Cycling Balaclava',
     cat: 'Cycling',
     filters: ['cycling', 'bigsave'],
@@ -201,6 +216,7 @@ const products = [
   },
   {
     id: 'bar-tape',
+    img: 'images/bar-tape.jpg',
     name: 'Handlebar Tape',
     cat: 'Cycling',
     filters: ['cycling', 'bigsave'],
@@ -214,6 +230,7 @@ const products = [
   },
   {
     id: 'mini-pump-cx',
+    img: 'images/mini-pump-cx.jpg',
     name: 'Mini Frame Pump',
     cat: 'Tools',
     filters: ['tools', 'bigsave'],
@@ -227,6 +244,7 @@ const products = [
   },
   {
     id: 'mini-pump-enlee',
+    img: 'images/mini-pump-enlee.jpg',
     name: 'Ultracompact Mini Pump',
     cat: 'Tools',
     filters: ['tools', 'bigsave'],
@@ -240,6 +258,7 @@ const products = [
   },
   {
     id: 'mini-pump-west',
+    img: 'images/mini-pump-west.jpg',
     name: 'Mini Pump (Budget Pick)',
     cat: 'Tools',
     filters: ['tools', 'bigsave'],
@@ -253,6 +272,7 @@ const products = [
   },
   {
     id: 'repair-kit',
+    img: 'images/repair-kit.jpg',
     name: 'Complete Repair Kit',
     cat: 'Tools',
     filters: ['tools', 'bigsave'],
@@ -266,6 +286,7 @@ const products = [
   },
   {
     id: 'gps-mount',
+    img: 'images/gps-mount.jpg',
     name: 'GPS Computer Mount',
     cat: 'Cycling',
     filters: ['cycling', 'bigsave'],
@@ -279,6 +300,7 @@ const products = [
   },
   {
     id: 'stem-mount',
+    img: 'images/stem-mount.jpg',
     name: 'Stem Computer Mount',
     cat: 'Cycling',
     filters: ['cycling', 'bigsave'],
@@ -292,6 +314,7 @@ const products = [
   },
   {
     id: 'cleaning-kit',
+    img: 'images/cleaning-kit.jpg',
     name: 'Bike Cleaning Kit (8-piece)',
     cat: 'Tools',
     filters: ['tools', 'bigsave'],
@@ -305,6 +328,7 @@ const products = [
   },
   {
     id: 'running-caps',
+    img: 'images/running-caps.jpg',
     name: 'Running Caps (2-pack)',
     cat: 'Running',
     filters: ['running', 'bigsave'],
@@ -318,6 +342,7 @@ const products = [
   },
   {
     id: 'calf-sleeves',
+    img: 'images/calf-sleeves.jpg',
     name: 'Compression Calf Sleeves',
     cat: 'Running',
     filters: ['running', 'bigsave'],
@@ -331,6 +356,7 @@ const products = [
   },
   {
     id: 'running-belt',
+    img: 'images/running-belt.jpg',
     name: 'Running Belt',
     cat: 'Running',
     filters: ['running', 'bigsave'],
@@ -344,6 +370,7 @@ const products = [
   },
   {
     id: 'elastic-laces',
+    img: 'images/elastic-laces.jpg',
     name: 'Elastic No-Tie Laces',
     cat: 'Running',
     filters: ['running', 'under5'],
@@ -357,6 +384,7 @@ const products = [
   },
   {
     id: 'foam-roller',
+    img: 'images/foam-roller.jpg',
     name: 'Foam Roller Set (5-piece)',
     cat: 'Running',
     filters: ['running', 'bigsave'],
@@ -370,6 +398,7 @@ const products = [
   },
   {
     id: 'resistance-bands',
+    img: 'images/resistance-bands.jpg',
     name: 'Resistance Bands Set',
     cat: 'Running',
     filters: ['running', 'bigsave'],
@@ -383,6 +412,7 @@ const products = [
   },
   {
     id: 'mini-bands',
+    img: 'images/mini-bands.jpg',
     name: 'Mini Resistance Bands (3-pack)',
     cat: 'Running',
     filters: ['running', 'bigsave'],
@@ -396,6 +426,7 @@ const products = [
   },
   {
     id: 'race-belt',
+    img: 'images/race-belt.jpg',
     name: 'Triathlon Race Belt',
     cat: 'Running',
     filters: ['running', 'under5'],
@@ -409,6 +440,7 @@ const products = [
   },
   {
     id: 'swim-cap',
+    img: 'images/swim-cap.jpg',
     name: 'Silicone Swim Cap',
     cat: 'Running',
     filters: ['running', 'under5'],

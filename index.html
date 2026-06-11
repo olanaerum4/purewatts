@@ -134,10 +134,10 @@ function renderCard(p) {
     <a class="card" href="${p.link}"
        ${external ? 'target="_blank" rel="noopener"' : ''}>
       <div class="card-img">
+        ${p.img ? `<img class="card-img-photo" src="${p.img}" alt="${p.name}" loading="lazy">` : `<span class="card-img-label">${p.name.toLowerCase()} photo</span>`}
         <div class="card-badge">SAVE $${p.save}</div>
         <div class="card-tested">✓ Tested</div>
         ${sourceBadge}
-        <span class="card-img-label">${p.name.toLowerCase()} photo</span>
       </div>
       <div class="card-body">
         <div class="card-cat">${p.cat}</div>
