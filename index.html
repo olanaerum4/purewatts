@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pure Watts — Budget Gear That Actually Works</title>
+<meta name="description" content="20 budget cycling and running picks that perform identically to branded gear costing 5–10× more. All personally tested. No fluff, no sponsorships.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="logo" href="index.html">
+    <span class="logo-bolt">⚡</span> PURE WATTS
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">All Picks</a></li>
+    <li><a href="index.html?filter=cycling">Cycling</a></li>
+    <li><a href="index.html?filter=running">Running</a></li>
+    <li><a href="buying-guide.html">Guide</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <a class="nav-tiktok" href="https://temu.to/k/erey3rug0xz" target="_blank" rel="noopener">📱 TikTok</a>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">Pure Watts — Budget Gear Tested on Real Rides</p>
+  <h1 class="hero-headline">Save <em>$2,400+</em><br>on your kit</h1>
+  <p class="hero-sub">Budget picks that perform identically to branded gear costing 5–10× more. All personally tested. No fluff, no sponsorships.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-val">$2,400+</span>
+      <span class="hero-stat-label">Total savings</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-val" id="hero-count">—</span>
+      <span class="hero-stat-label">Picks tested</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-val">4.8★</span>
+      <span class="hero-stat-label">Avg. rating</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-val">$1.70</span>
+      <span class="hero-stat-label">Cheapest pick</span>
+    </div>
+  </div>
+</section>
+
+<div class="filters-bar">
+  <button class="filter-pill active" data-filter="all">All Picks</button>
+  <button class="filter-pill" data-filter="cycling">Cycling</button>
+  <button class="filter-pill" data-filter="running">Running</button>
+  <button class="filter-pill" data-filter="tools">Tools</button>
+  <button class="filter-pill" data-filter="safety">Safety</button>
+  <button class="filter-pill" data-filter="under5">Under $5</button>
+  <button class="filter-pill" data-filter="bigsave">Save $30+</button>
+</div>
+
+<div class="search-wrap">
+  <input type="search" class="search-input" id="search-bar" placeholder="Search picks — e.g. gloves, pump, running...">
+</div>
+
+<div class="section-header">
+  <div class="section-header-left">
+    <span class="section-title">All Picks</span>
+    <span class="section-count" id="count"></span>
+  </div>
+  <select class="sort-select" id="sort-select">
+    <option value="featured">Featured</option>
+    <option value="price-asc">Price: Low → High</option>
+    <option value="price-desc">Price: High → Low</option>
+    <option value="save-desc">Biggest Savings</option>
+    <option value="stars-desc">Highest Rated</option>
+    <option value="reviews-desc">Most Reviewed</option>
+  </select>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<!-- ALIEXPRESS DISCOUNT CODES -->
+<div class="aliex-banner">
+  <div class="aliex-banner-header">
+    <div class="aliex-banner-title">AliExpress Picks — Extra Off at Checkout</div>
+    <a class="aliex-collection-btn" href="https://s.click.aliexpress.com/e/_ExRerLu" target="_blank" rel="noopener">
+      Browse my AliExpress collection →
+    </a>
+  </div>
+  <p class="aliex-banner-sub">Use search code <strong>[AY0RZ9]</strong> on AliExpress to find all my picks, then apply one of these discount codes at checkout:</p>
+  <div class="aliex-codes">
+    <div class="aliex-code-row"><span class="aliex-code">IFPERVGF</span><span class="aliex-code-desc">$3 off orders $15+</span></div>
+    <div class="aliex-code-row"><span class="aliex-code">IFPQHN0F</span><span class="aliex-code-desc">$6 off orders $39+</span></div>
+    <div class="aliex-code-row"><span class="aliex-code">IFP0C8FN</span><span class="aliex-code-desc">$10 off orders $69+</span></div>
+    <div class="aliex-code-row"><span class="aliex-code">IFPZBDLD</span><span class="aliex-code-desc">$15 off orders $99+</span></div>
+    <div class="aliex-code-row"><span class="aliex-code">IFPFNDS6</span><span class="aliex-code-desc">$20 off orders $139+</span></div>
+    <div class="aliex-code-row"><span class="aliex-code">IFPGRFJY</span><span class="aliex-code-desc">$25 off orders $169+</span></div>
+    <div class="aliex-code-row"><span class="aliex-code">IFPFBIGS</span><span class="aliex-code-desc">$35 off orders $249+</span></div>
+    <div class="aliex-code-row"><span class="aliex-code">IFPJTX7X</span><span class="aliex-code-desc">$50 off orders $359+</span></div>
+  </div>
+</div>
+
+<div class="referral-banner">
+  <div class="referral-text">
+    <strong>New to Temu? Use my referral code.</strong>
+    30% off your first order — stacks with the prices listed above.
+  </div>
+  <div class="referral-code">ala553515</div>
+</div>
+
+<footer class="footer" id="about">
+  <div class="footer-logo">
+    <span class="footer-logo-bolt">⚡</span> PURE WATTS
+  </div>
+  <p class="footer-tagline">Real gear tested on real rides. No sponsorships, no fluff — just honest savings for endurance athletes who want to go faster without going broke.</p>
+  <a class="footer-tiktok-btn" href="https://temu.to/k/erey3rug0xz" target="_blank" rel="noopener">📱 Follow on TikTok →</a>
+  <p class="footer-disc">
+    Affiliate disclosure: Links on this page are affiliate links. When you purchase through them I may earn a small commission at no extra cost to you. I only recommend products I have personally tested and believe offer genuine value.
+  </p>
+</footer>
+
+<script src="products.js"></script>
+<script>
+let currentFilter = 'all';
+let currentSort   = 'featured';
+let currentSearch = '';
+
+function renderCard(p) {
+  const external = !p.isArticle && p.link !== '#';
+  const sourceBadge = p.source === 'aliexpress'
+    ? '<span class="card-source aliex">AliExpress</span>'
+    : '<span class="card-source temu">Temu</span>';
+  return `
+    <a class="card" href="${p.link}"
+       ${external ? 'target="_blank" rel="noopener"' : ''}>
+      <div class="card-img">
+        <div class="card-badge">SAVE $${p.save}</div>
+        <div class="card-tested">✓ Tested</div>
+        ${sourceBadge}
+        <span class="card-img-label">${p.name.toLowerCase()} photo</span>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">${p.cat}</div>
+        <div class="card-name">${p.name}</div>
+        <div class="card-tagline">${p.tagline}</div>
+        <div class="card-stars">
+          <span class="stars">★★★★★</span>
+          <span class="stars-val">${p.stars}</span>
+          <span class="stars-count">(${p.reviews.toLocaleString()})</span>
+        </div>
+        <div class="card-pricing">
+          <span class="price-branded">$${p.branded} branded</span>
+          <span class="price-ours">$${p.price}</span>
+        </div>
+      </div>
+      <div class="card-cta">
+        ${p.isArticle ? 'Read Review →' : p.source === 'aliexpress' ? 'Buy on AliExpress →' : 'Buy on Temu →'}
+        ${p.newUser ? '<span class="card-cta-note">New user? Under $1 with sign-up bonus</span>' : ''}
+      </div>
+    </a>`;
+}
+
+function renderGrid() {
+  const q = currentSearch;
+  let visible = products.filter(p => {
+    const filterOk = currentFilter === 'all' || p.filters.includes(currentFilter);
+    const searchOk = !q || [p.name, p.tagline, p.cat].some(s => s.toLowerCase().includes(q));
+    return filterOk && searchOk;
+  });
+
+  switch (currentSort) {
+    case 'price-asc':    visible.sort((a, b) => a.price - b.price); break;
+    case 'price-desc':   visible.sort((a, b) => b.price - a.price); break;
+    case 'save-desc':    visible.sort((a, b) => b.save - a.save); break;
+    case 'stars-desc':   visible.sort((a, b) => b.stars - a.stars || b.reviews - a.reviews); break;
+    case 'reviews-desc': visible.sort((a, b) => b.reviews - a.reviews); break;
+  }
+
+  document.getElementById('grid').innerHTML = visible.length
+    ? visible.map(renderCard).join('')
+    : '<p class="no-results">No picks match your search.</p>';
+  document.getElementById('count').textContent = `${visible.length} product${visible.length !== 1 ? 's' : ''}`;
+}
+
+// Boot
+document.getElementById('hero-count').textContent = products.length;
+renderGrid();
+
+// Filter pills
+document.querySelectorAll('.filter-pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    document.querySelector('.section-title').textContent = btn.textContent;
+    renderGrid();
+  });
+});
+
+// Sort
+document.getElementById('sort-select').addEventListener('change', e => {
+  currentSort = e.target.value;
+  renderGrid();
+});
+
+// Search
+document.getElementById('search-bar').addEventListener('input', e => {
+  currentSearch = e.target.value.toLowerCase().trim();
+  renderGrid();
+});
+
+// URL filter param on load
+const urlFilter = new URLSearchParams(location.search).get('filter');
+if (urlFilter) {
+  const btn = document.querySelector(`[data-filter="${urlFilter}"]`);
+  if (btn) btn.click();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Product — Pure Watts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f4f0; --surface: #fff; --text: #111; --muted: #787068;
+  --border: #e2dfd7; --lime: #c8f135; --dark: #0d0d0d; --radius: 10px;
+  --font-head: 'Barlow Condensed', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--text); padding: 40px 24px 80px; }
+
+.page { max-width: 740px; margin: 0 auto; }
+
+.header { margin-bottom: 32px; }
+.back { font-size: 13px; color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin-bottom: 16px; }
+.back:hover { color: var(--text); }
+.logo { font-family: var(--font-head); font-size: 22px; font-weight: 900; text-transform: uppercase; display: flex; align-items: center; gap: 5px; margin-bottom: 8px; }
+.logo-bolt { background: var(--lime); padding: 1px 5px; border-radius: 3px; }
+h1 { font-family: var(--font-head); font-size: 36px; font-weight: 900; text-transform: uppercase; }
+
+.form-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 20px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group.full { grid-column: 1 / -1; }
+label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); }
+input, select, textarea {
+  font-family: var(--font-body); font-size: 15px; color: var(--text);
+  border: 1.5px solid var(--border); border-radius: 7px; padding: 10px 13px;
+  background: var(--bg); transition: border-color .15s; outline: none;
+  width: 100%;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--dark); background: #fff; }
+textarea { resize: vertical; min-height: 72px; line-height: 1.5; }
+
+.save-preview {
+  background: var(--lime); border-radius: 7px; padding: 10px 13px;
+  font-family: var(--font-head); font-size: 22px; font-weight: 900;
+  letter-spacing: .3px; color: var(--dark); display: flex; align-items: center; gap: 8px;
+}
+.save-preview-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; opacity: .6; }
+
+.filters-check { display: flex; flex-wrap: wrap; gap: 8px; }
+.filter-opt { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.filter-opt input[type=checkbox] { width: auto; accent-color: var(--dark); cursor: pointer; }
+.filter-opt span { font-size: 13px; font-weight: 500; }
+
+.generate-btn {
+  width: 100%; background: var(--dark); color: #fff; border: none; cursor: pointer;
+  padding: 16px; border-radius: 8px; font-family: var(--font-body);
+  font-size: 16px; font-weight: 700; letter-spacing: .2px; transition: background .15s;
+}
+.generate-btn:hover { background: #333; }
+
+.output-section { display: none; }
+.output-section.visible { display: block; }
+.output-label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--muted); margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;
+}
+.copy-btn {
+  background: var(--lime); color: var(--dark); border: none; cursor: pointer;
+  padding: 6px 14px; border-radius: 5px; font-family: var(--font-body);
+  font-size: 12px; font-weight: 700; transition: opacity .15s; text-transform: uppercase; letter-spacing: .5px;
+}
+.copy-btn:hover { opacity: .8; }
+.copy-btn.copied { background: #afd424; }
+
+pre {
+  background: var(--dark); color: #e8e8e8; border-radius: var(--radius);
+  padding: 20px; font-size: 13px; line-height: 1.6; overflow-x: auto;
+  white-space: pre-wrap; word-break: break-all;
+}
+pre .key { color: #7ec8e3; }
+pre .str { color: #c8f135; }
+pre .num { color: #ffb347; }
+pre .bool { color: #ff8a8a; }
+
+.instructions {
+  background: var(--surface); border: 1.5px solid var(--lime); border-radius: var(--radius);
+  padding: 18px 20px; margin-top: 20px;
+}
+.instructions-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+.instructions ol { padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+.instructions li { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.instructions li strong { color: var(--text); }
+code { background: #e8e4dc; padding: 1px 5px; border-radius: 3px; font-size: 12px; font-family: monospace; }
+
+@media (max-width: 560px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <a class="back" href="index.html">← Back to site</a>
+    <div class="logo"><span class="logo-bolt">⚡</span> PURE WATTS</div>
+    <h1>Add a Product</h1>
+  </div>
+
+  <div class="form-card">
+    <div class="form-grid">
+
+      <div class="form-group full">
+        <label>Product Name</label>
+        <input type="text" id="name" placeholder="e.g. Compression Arm Sleeves" oninput="updateSlug()">
+      </div>
+
+      <div class="form-group full">
+        <label>Affiliate Link</label>
+        <input type="url" id="link" placeholder="https://temu.to/k/... or https://s.click.aliexpress.com/...">
+      </div>
+
+      <div class="form-group full">
+        <label>Tagline <span style="font-weight:400;text-transform:none;letter-spacing:0">— one punchy sentence</span></label>
+        <textarea id="tagline" placeholder="e.g. Same compression as CEP sleeves. Costs $57 less."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Branded Price ($)</label>
+        <input type="number" id="branded" placeholder="e.g. 65" oninput="updateSave()">
+      </div>
+
+      <div class="form-group">
+        <label>Our Price ($)</label>
+        <input type="number" id="price" step="0.01" placeholder="e.g. 8.50" oninput="updateSave()">
+      </div>
+
+      <div class="form-group">
+        <label>You Save</label>
+        <div class="save-preview" id="save-preview">
+          <span class="save-preview-label">Save</span>
+          <span id="save-val">$—</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Category</label>
+        <select id="cat">
+          <option value="Cycling">Cycling</option>
+          <option value="Running">Running</option>
+          <option value="Tools">Tools</option>
+          <option value="Safety">Safety</option>
+          <option value="Triathlon">Triathlon</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Star Rating</label>
+        <select id="stars">
+          <option value="4.9">4.9 ★★★★★</option>
+          <option value="4.8" selected>4.8 ★★★★★</option>
+          <option value="4.7">4.7 ★★★★★</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Review Count</label>
+        <input type="number" id="reviews" placeholder="e.g. 2847">
+      </div>
+
+      <div class="form-group">
+        <label>Platform</label>
+        <select id="source">
+          <option value="temu">Temu</option>
+          <option value="aliexpress">AliExpress</option>
+        </select>
+      </div>
+
+      <div class="form-group full">
+        <label>Filter Tags</label>
+        <div class="filters-check">
+          <label class="filter-opt"><input type="checkbox" name="filter" value="cycling"> <span>Cycling</span></label>
+          <label class="filter-opt"><input type="checkbox" name="filter" value="running"> <span>Running</span></label>
+          <label class="filter-opt"><input type="checkbox" name="filter" value="tools"> <span>Tools</span></label>
+          <label class="filter-opt"><input type="checkbox" name="filter" value="safety"> <span>Safety</span></label>
+          <label class="filter-opt"><input type="checkbox" name="filter" value="under5"> <span>Under $5</span></label>
+          <label class="filter-opt"><input type="checkbox" name="filter" value="bigsave"> <span>Save $30+</span></label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <button class="generate-btn" onclick="generate()">Generate Product Code →</button>
+
+  <div class="output-section" id="output">
+    <br>
+    <div class="output-label">
+      Copy this and paste it into <code>products.js</code>
+      <button class="copy-btn" id="copy-btn" onclick="copyCode()">Copy</button>
+    </div>
+    <pre id="code-output"></pre>
+
+    <div class="instructions">
+      <div class="instructions-title">How to add it to the site:</div>
+      <ol>
+        <li>Open <strong>products.js</strong> in your editor</li>
+        <li>Scroll to the bottom — find the last <code>},</code> before the closing <code>];</code></li>
+        <li>Paste the copied code right before the <code>];</code></li>
+        <li>Save the file — the product appears on the site immediately</li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function slugify(str) {
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function updateSlug() {
+  // just for generating the id field — no visible display needed
+}
+
+function updateSave() {
+  const branded = parseFloat(document.getElementById('branded').value) || 0;
+  const price = parseFloat(document.getElementById('price').value) || 0;
+  const save = Math.round(branded - price);
+  document.getElementById('save-val').textContent = save > 0 ? `$${save}` : '$—';
+
+  // auto-check bigsave if save >= 30
+  const bigsave = document.querySelector('[value="bigsave"]');
+  if (save >= 30) bigsave.checked = true;
+
+  // auto-check under5 if price < 5
+  const under5 = document.querySelector('[value="under5"]');
+  if (price > 0 && price < 5) under5.checked = true;
+}
+
+function highlight(code) {
+  return code
+    .replace(/(".*?")/g, '<span class="str">$1</span>')
+    .replace(/\b(\d+\.?\d*)\b/g, '<span class="num">$1</span>')
+    .replace(/\b(true|false)\b/g, '<span class="bool">$1</span>');
+}
+
+function generate() {
+  const name     = document.getElementById('name').value.trim();
+  const link     = document.getElementById('link').value.trim();
+  const tagline  = document.getElementById('tagline').value.trim();
+  const branded  = parseFloat(document.getElementById('branded').value) || 0;
+  const price    = parseFloat(document.getElementById('price').value) || 0;
+  const save     = Math.round(branded - price);
+  const cat      = document.getElementById('cat').value;
+  const stars    = parseFloat(document.getElementById('stars').value);
+  const reviews  = parseInt(document.getElementById('reviews').value) || 0;
+  const source   = document.getElementById('source').value;
+  const filters  = [...document.querySelectorAll('[name="filter"]:checked')].map(c => c.value);
+
+  if (!name || !link || !branded || !price) {
+    alert('Please fill in: Name, Link, Branded Price, and Our Price.');
+    return;
+  }
+
+  const id = slugify(name);
+  const sourceLine = source !== 'temu' ? `\n    source: '${source}',` : '';
+
+  const code = `  {
+    id: '${id}',
+    name: '${name}',
+    cat: '${cat}',
+    filters: ${JSON.stringify(filters)},
+    branded: ${branded},
+    price: ${price},
+    save: ${save},
+    stars: ${stars},
+    reviews: ${reviews},
+    link: '${link}',
+    tagline: '${tagline}',${sourceLine}
+  },`;
+
+  document.getElementById('code-output').innerHTML = highlight(code);
+  document.getElementById('output').classList.add('visible');
+  document.getElementById('copy-btn').textContent = 'Copy';
+  document.getElementById('copy-btn').classList.remove('copied');
+  window._generatedCode = code;
+}
+
+function copyCode() {
+  navigator.clipboard.writeText(window._generatedCode || '').then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = 'Copied ✓';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
