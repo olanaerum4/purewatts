@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Review — Pure Watts</title>
+<meta name="description" id="page-desc" content="Personally tested budget gear pick from Pure Watts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="logo" href="index.html">
+    <span class="logo-bolt">⚡</span> PURE WATTS
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">All Picks</a></li>
+    <li><a href="index.html?filter=cycling">Cycling</a></li>
+    <li><a href="index.html?filter=running">Running</a></li>
+    <li><a href="buying-guide.html">Guide</a></li>
+    <li><a href="index.html#about">About</a></li>
+  </ul>
+  <a class="nav-tiktok" href="https://temu.to/k/erey3rug0xz" target="_blank" rel="noopener">📱 TikTok</a>
+</nav>
+
+<div class="page-wrap" id="page-wrap">
+  <main class="main" id="main-content">
+    <p class="no-results" style="padding:60px 0">Loading…</p>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="footer-logo">
+    <span class="footer-logo-bolt">⚡</span> PURE WATTS
+  </div>
+  <p class="footer-tagline">Real gear tested on real rides. No sponsorships, no fluff — just honest savings for endurance athletes who want to go faster without going broke.</p>
+  <a class="footer-tiktok-btn" href="https://temu.to/k/erey3rug0xz" target="_blank" rel="noopener">📱 Follow on TikTok →</a>
+  <p class="footer-disc">
+    Affiliate disclosure: Links on this page are affiliate links. When you purchase through them I may earn a small commission at no extra cost to you. I only recommend products I have personally tested and believe offer genuine value.
+  </p>
+</footer>
+
+<script src="products.js"></script>
+<script>
+const id = new URLSearchParams(location.search).get('id');
+const p  = products.find(x => x.id === id);
+
+if (!p) {
+  document.getElementById('main-content').innerHTML =
+    '<p class="no-results" style="padding:60px 0">Product not found. <a href="index.html">← Back to all picks</a></p>';
+} else {
+  document.title = `${p.name} Review — Pure Watts`;
+  document.getElementById('page-desc').content =
+    `${p.tagline} Personally tested by Pure Watts.`;
+
+  const filterLink = p.filters.includes('cycling') ? 'cycling'
+    : p.filters.includes('running') ? 'running' : 'all';
+  const filterLabel = filterLink === 'all' ? 'All Picks' : filterLink.charAt(0).toUpperCase() + filterLink.slice(1);
+
+  const platform = p.source === 'aliexpress' ? 'AliExpress' : 'Temu';
+  const ctaLabel = `Buy on ${platform} →`;
+
+  const relatedPicks = products
+    .filter(x => x.id !== p.id && x.filters.some(f => p.filters.includes(f)))
+    .sort(() => Math.random() - .5)
+    .slice(0, 3);
+
+  const relatedHTML = relatedPicks.map(r => `
+    <a class="related-card" href="review.html?id=${r.id}">
+      <div class="related-img"></div>
+      <div class="related-body">
+        <div class="related-name">${r.name}</div>
+        <span class="related-save">SAVE $${r.save}</span>
+      </div>
+    </a>`).join('');
+
+  const bodyParas = (p.body || [p.tagline]).map(t => `<p>${t}</p>`).join('');
+
+  const newUserNote = p.newUser
+    ? '<span class="sidebar-cta-note">New user? Under $1 with sign-up bonus</span>'
+    : '';
+
+  document.getElementById('main-content').innerHTML = `
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">← All Picks</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="index.html?filter=${filterLink}">${filterLabel}</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>${p.name}</span>
+    </nav>
+
+    <div class="article-tags">
+      <span class="tag">${p.cat}</span>
+      <span class="tag tag-tested">✓ Personally Tested</span>
+      ${p.filters.includes('under5') ? '<span class="tag">Under $5</span>' : ''}
+    </div>
+
+    <h1 class="article-title">${p.name}<br>for <em>$${p.price}</em></h1>
+    <p class="article-deck">${p.tagline}</p>
+
+    <div class="article-meta">
+      <span class="meta-stars">★★★★★</span>
+      <span class="meta-val">${p.stars}</span>
+      <span>·</span>
+      <span>${p.reviews.toLocaleString()} verified reviews</span>
+      <span>·</span>
+      <span>$${p.price} / unit</span>
+    </div>
+
+    <div class="product-img" role="img" aria-label="${p.name.toLowerCase()} product photo">${p.name.toLowerCase()} product photo</div>
+
+    <p class="compare-label">Side by side</p>
+    <div class="compare-grid">
+      <div class="compare-cell">
+        <div class="compare-cell-label">Branded equivalent</div>
+        <div class="compare-price">$${p.branded}</div>
+        <div class="compare-sub">Typical retail price</div>
+      </div>
+      <div class="compare-cell">
+        <div class="compare-cell-label">This pick</div>
+        <div class="compare-price">$${p.price}</div>
+        <div class="compare-sub">Pure Watts rec.</div>
+        <div class="compare-save">YOU SAVE $${p.save}</div>
+      </div>
+    </div>
+
+    <div class="body-text">
+      ${bodyParas}
+    </div>
+
+    <blockquote class="pull-quote">
+      <p>"${p.quote || p.tagline}"</p>
+      <cite>— Pure Watts, personally tested</cite>
+    </blockquote>
+
+    <div class="specs-grid">
+      <div class="spec-cell">
+        <div class="spec-label">Price</div>
+        <div class="spec-val">$${p.price}</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Saving vs branded</div>
+        <div class="spec-val">~$${p.save}</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Rating</div>
+        <div class="spec-val">${p.stars} / 5</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Verified reviews</div>
+        <div class="spec-val">${p.reviews.toLocaleString()}</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Category</div>
+        <div class="spec-val">${p.cat}</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-label">Platform</div>
+        <div class="spec-val">${platform}</div>
+      </div>
+    </div>
+
+    <div class="verdict-box">
+      <div class="verdict-label">Bottom Line</div>
+      <p class="verdict-text">${p.verdict || 'Saves you $' + p.save + ' vs the branded equivalent with no meaningful performance difference. Personally tested and approved.'}</p>
+    </div>
+
+    ${relatedHTML.length ? `<p class="related-title">More Picks You'll Like</p><div class="related-grid">${relatedHTML}</div>` : ''}
+  `;
+
+  document.getElementById('page-wrap').insertAdjacentHTML('beforeend', `
+    <aside class="sidebar">
+      <div class="sidebar-save-bar">
+        <div class="sidebar-save-label">You Save</div>
+        <div class="sidebar-save-val">$${p.save}</div>
+        <div class="sidebar-save-sub">vs branded equivalent</div>
+      </div>
+      <div class="sidebar-body">
+        <div>
+          <div class="sidebar-price-label">Use my link</div>
+          <div class="sidebar-price">$${p.price}</div>
+          <div class="sidebar-branded">$${p.branded} branded equivalent</div>
+        </div>
+        <a class="sidebar-cta" href="${p.link}" target="_blank" rel="noopener">
+          ${ctaLabel}
+          ${newUserNote}
+        </a>
+        <hr class="sidebar-divider">
+        <div class="sidebar-stars">
+          <span class="stars">★★★★★</span>
+          <div>
+            <span style="font-size:13px;font-weight:600;">${p.stars} / 5</span>
+            <div class="sidebar-stars-info">${p.reviews.toLocaleString()} verified reviews</div>
+          </div>
+        </div>
+        <hr class="sidebar-divider">
+        <a class="sidebar-share" href="https://temu.to/k/erey3rug0xz" target="_blank" rel="noopener">
+          📱 Share on TikTok
+        </a>
+      </div>
+    </aside>
+  `);
+}
+</script>
+</body>
+</html>
