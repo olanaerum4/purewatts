@@ -126,12 +126,13 @@ let currentSort   = 'featured';
 let currentSearch = '';
 
 function renderCard(p) {
+  const href = p.isArticle ? `review.html?id=${p.id}` : p.link;
   const external = !p.isArticle && p.link !== '#';
   const sourceBadge = p.source === 'aliexpress'
     ? '<span class="card-source aliex">AliExpress</span>'
     : '<span class="card-source temu">Temu</span>';
   return `
-    <a class="card" href="${p.link}"
+    <a class="card" href="${href}"
        ${external ? 'target="_blank" rel="noopener"' : ''}>
       <div class="card-img">
         ${p.img ? `<img class="card-img-photo" src="${p.img}" alt="${p.name}" loading="lazy">` : `<span class="card-img-label">${p.name.toLowerCase()} photo</span>`}
